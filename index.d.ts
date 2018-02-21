@@ -4,19 +4,18 @@
 // TypeScript Version: 2.3.2
 
 import * as React from 'react'
-import { ScrollViewProperties, ListViewProperties, FlatListProperties } from 'react-native'
+import { ScrollViewProperties, ListViewProperties } from 'react-native'
 
 interface KeyboardAwareProps {
-  /**
+    /**
      * Adds an extra offset that represents the TabBarIOS height.
      *
-     * Default is false
      * @type {boolean}
      * @memberof KeyboardAwareProps
      */
-  viewIsInsideTabBar?: boolean
+    viewIsInsideTabBar?: boolean
 
-  /**
+    /**
      * Coordinates that will be used to reset the scroll when the keyboard hides.
      *
      * @type {{
@@ -25,20 +24,20 @@ interface KeyboardAwareProps {
      *     }}
      * @memberof KeyboardAwareProps
      */
-  resetScrollToCoords?: {
-    x: number
-    y: number
-  }
+    resetScrollToCoords?: {
+        x: number,
+        y: number
+    }
 
-  /**
+    /**
      * Lets the user enable or disable automatic resetScrollToCoords
      *
      * @type {boolean}
      * @memberof KeyboardAwareProps
      */
-  enableResetScrollToCoords?: boolean
+    enableResetScrollToCoords?: boolean
 
-  /**
+    /**
      * When focus in TextInput will scroll the position
      *
      * Default is true
@@ -46,28 +45,18 @@ interface KeyboardAwareProps {
      * @type {boolean}
      * @memberof KeyboardAwareProps
      */
-  
-  enableAutomaticScroll?: boolean
-    /**
-     * Enables keyboard aware settings for Android
-     *
-     * Default is false
-     *
-     * @type {boolean}
-     * @memberof KeyboardAwareProps
-     */
-  enableOnAndroid?: boolean
+    enableAutoAutomaticScroll?: boolean
 
-  /**
+    /**
      * Adds an extra offset when focusing the TextInputs.
      *
      * Default is 75
      * @type {number}
      * @memberof KeyboardAwareProps
      */
-  extraHeight?: number
+    extraHeight?: number
 
-  /**
+    /**
      * Adds an extra offset to the keyboard.
      * Useful if you want to stick elements above the keyboard.
      *
@@ -76,43 +65,16 @@ interface KeyboardAwareProps {
      * @type {number}
      * @memberof KeyboardAwareProps
      */
-  extraScrollHeight?: number
-
-  /**
-     * Sets the delay time before scrolling to new position
-     *
-     * Default is 250
-     *
-     * @type {number}
-     * @memberof KeyboardAwareProps
-     */
-  keyboardOpeningTime?: number
+    extraScrollHeight?: number
 }
 
-interface KeyboardAwareListViewProps
-  extends KeyboardAwareProps,
-    ListViewProperties {}
-interface KeyboardAwareScrollViewProps
-  extends KeyboardAwareProps,
-    ScrollViewProperties {}
-interface KeyboardAwareFlatListProps<ItemT>
-  extends KeyboardAwareProps,
-    FlatListProperties<ItemT> {}
+interface KeyboardAwareListViewProps extends KeyboardAwareProps, ListViewProperties {}
+interface KeyboardAwareScrollViewProps extends KeyboardAwareProps, ScrollViewProperties {}
 
 interface KeyboardAwareState {
   keyboardSpace: number
 }
 
 export class KeyboardAwareMixin {}
-export class KeyboardAwareListView extends React.Component<
-  KeyboardAwareListViewProps,
-  KeyboardAwareState
-> {}
-export class KeyboardAwareScrollView extends React.Component<
-  KeyboardAwareScrollViewProps,
-  KeyboardAwareState
-> {}
-export class KeyboardAwareFlatList extends React.Component<
-KeyboardAwareFlatListProps<any>,
-KeyboardAwareState
-> {}
+export class KeyboardAwareListView extends React.Component<KeyboardAwareListViewProps, KeyboardAwareState> { }
+export class KeyboardAwareScrollView extends React.Component<KeyboardAwareScrollViewProps, KeyboardAwareState> { }
